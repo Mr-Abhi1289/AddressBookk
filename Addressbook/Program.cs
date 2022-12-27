@@ -6,7 +6,7 @@ namespace Addressbook
 {
     public class Program
     {
-        public static void Main(string[] args, Console console)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Addressbook program");
             Addressbook Book = new Addressbook();
@@ -34,6 +34,13 @@ namespace Addressbook
                 Book.CreateContact(FirstName, LastName, Address, city, state, zipcode, PhoneNumber, Email);
                 Contact--;
             }
+            Console.WriteLine("do you want to modify(Y/N)");
+            char ch = Convert.ToChar(Console.ReadLine());
+            if(ch=='Y' || ch == 'y')
+            {
+                Book.EditContact();
+            }
+                     
         }
         public void DisplayContact(Addressbook[] ContactArray, int n)
         {
