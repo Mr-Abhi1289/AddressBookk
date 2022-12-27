@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,31 +19,38 @@ namespace Addressbook
         public int ZipCode;
         public long PhoneNumber;
         public string Email;
-        public Addressbook(string firstname,string lastname,string address,string state,string city,int zipcode,long phonenumber,string email)
+        public Addressbook[] ContactArray;
+        public int contact = 0;
+
+        public Addressbook()
+        {
+            this.ContactArray = new Addressbook[5];
+        }
+        public Addressbook(string firstname, string lastname, string address, string state, string city, int zipcode, long phonenumber, string email)
         {
             FirstName = firstname;
             LastName = lastname;
             Address = address;
             City = city;
-            State =state;
+            State = state;
             ZipCode = zipcode;
             PhoneNumber = phonenumber;
             Email = email;
         }
-        public void displaycontact()
+
+        public void CreateContact(string firstname, string lastname, string address, string city, string state, int zipcode, long phonenumber, string email)
         {
-            Console.WriteLine("Name: {0} {1}", FirstName, LastName);
-            Console.WriteLine("Address: {0}", Address);
-            Console.WriteLine("city: {0}", City);
-            Console.WriteLine("state: {0}", State);
-            Console.WriteLine("zipcode: {0}",ZipCode);
-            Console.WriteLine("phone number: {0}", PhoneNumber);
-            Console.WriteLine("Email: {0}",Email);
-          
+            ContactArray[this.contact] = new Addressbook(firstname, lastname, address, city, state, zipcode, phonenumber, email);
+            contact++;
+            Program program = new Program();
+            program.DisplayContact(ContactArray, contact);
         }
-
-
-        
-
     }
 }
+
+
+
+
+
+
+
