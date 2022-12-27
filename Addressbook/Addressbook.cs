@@ -27,6 +27,7 @@ namespace Addressbook
             PhoneNumber = phonenumber;
             Email = email;
         }
+        
         public void displaycontact()
         {
             Console.WriteLine("Name: {0} {1}", FirstName, LastName);
@@ -38,9 +39,5 @@ namespace Addressbook
             Console.WriteLine("Email: {0}",Email);
           
         }
-
-
-        
-
     }
 }
