@@ -1,13 +1,6 @@
 ﻿using Addressbook;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace AddressBookDay23
+namespace AddressBook
 {
     public class AddressBook : IContact
     {
@@ -17,8 +10,6 @@ namespace AddressBookDay23
 
         public void CreateContact(string firstname, string lastname, string address, string city, string state, int zipcode, long phonenumber, string email, string BookName)
         {
-
-        
             Contact contact = new Contact();
             contact.FirstName = firstname;
             contact.LastName = lastname;
@@ -38,14 +29,14 @@ namespace AddressBookDay23
             {
                 if (item.Key.ToLower().Equals(name.ToLower()))
                 {
-                    Console.WriteLine("FirstName:" + item.Value.FirstName);
-                    Console.WriteLine("LastName:" + item.Value.LastName);
-                    Console.WriteLine("Address:" + item.Value.Address);
-                    Console.WriteLine("City:" + item.Value.City);
-                    Console.WriteLine("State:" + item.Value.State);
-                    Console.WriteLine("Zipcode:" + item.Value.ZipCode);
-                    Console.WriteLine("Email:" + item.Value.Email);
-                    Console.WriteLine("PhoneNumber:" + item.Value.PhoneNumber);
+                    Console.WriteLine("FirstName;" + item.Value.FirstName);
+                    Console.WriteLine("LastName;" + item.Value.LastName);
+                    Console.WriteLine("Address;" + item.Value.Address);
+                    Console.WriteLine("City;" + item.Value.City);
+                    Console.WriteLine("State;" + item.Value.State);
+                    Console.WriteLine("Zip;" + item.Value.ZipCode);
+                    Console.WriteLine("Email;" + item.Value.Email);
+                    Console.WriteLine("PhoneNumber;" + item.Value.PhoneNumber);
                 }
             }
         }
@@ -73,49 +64,49 @@ namespace AddressBookDay23
                 {
 
 
-                    Console.WriteLine("Enter Field To Modify\n1.FirstName\n2.LastName\n3.Address\n4.City\n5.State\n6.Zipcode\n7.Email\n8.PhoneNumber");
+                    Console.WriteLine("Enter Field To Modify\n1.FirstNmae\n2.LastName\n3.Address\n4.City\n5.State\n6.Zip\n7.Email\n8.PhoneNumber");
                     int option = Convert.ToInt32(Console.ReadLine());
                     switch (option)
                     {
                         case 1:
-                            Console.WriteLine("Enter the Modified Value");
-                            string Firstname = Console.ReadLine();
-                            item.Value.FirstName = Firstname;
+                            Console.WriteLine("Enter the Modifed Value");
+                            string firstname = Console.ReadLine();
+                            item.Value.FirstName = firstname;
                             break;
                         case 2:
-                            Console.WriteLine("Enter the Modified Value");
-                            string Lastname = Console.ReadLine();
-                            item.Value.LastName = Lastname;
+                            Console.WriteLine("Enter the Modifed Value");
+                            string lastname = Console.ReadLine();
+                            item.Value.LastName = lastname;
                             break;
                         case 3:
-                            Console.WriteLine("Enter the Modified Value");
-                            string address = Console.ReadLine();
-                            item.Value.Address =address;
+                            Console.WriteLine("Enter the Modifed Value");
+                            string Address = Console.ReadLine();
+                            item.Value.Address = Address;
                             break;
                         case 4:
-                            Console.WriteLine("Enter the Modified Value");
+                            Console.WriteLine("Enter the Modifed Value");
                             string city = Console.ReadLine();
                             item.Value.City = city;
                             break;
                         case 5:
-                            Console.WriteLine("Enter the Modified Value");
+                            Console.WriteLine("Enter the Modifed Value");
                             string state = Console.ReadLine();
                             item.Value.State = state;
                             break;
                         case 6:
-                            Console.WriteLine("Enter the Modified Value");
+                            Console.WriteLine("Enter the Modifed Value");
                             int zipcode = Convert.ToInt32(Console.ReadLine());
                             item.Value.ZipCode = zipcode;
                             break;
                         case 7:
-                            Console.WriteLine("Enter the Modified Value");
-                            string Emailid = Console.ReadLine();
-                            item.Value.Email = Emailid;
+                            Console.WriteLine("Enter the Modifed Value");
+                            string mailid = Console.ReadLine();
+                            item.Value.Email = mailid;
                             break;
                         case 8:
-                            Console.WriteLine("Enter the Modified Value");
-                            long Phonenumber = Convert.ToInt64(Console.ReadLine());
-                            item.Value.PhoneNumber = Phonenumber;
+                            Console.WriteLine("Enter the Modifed Value");
+                            long phonenumber = Convert.ToInt64(Console.ReadLine());
+                            item.Value.PhoneNumber = phonenumber;
                             break;
 
 
@@ -147,6 +138,6 @@ namespace AddressBookDay23
             return addressBookDictionary;
         }
 
-        
+       
     }
 }

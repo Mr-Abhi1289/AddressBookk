@@ -1,10 +1,13 @@
-﻿using AddressBookDay23;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net;
-using System.Reflection.Emit;
-using System.Reflection.Metadata;
-using System.Runtime;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Addressbook
+namespace AddressBook
 {
     public class Program
     {
@@ -14,7 +17,7 @@ namespace Addressbook
             AddressBook book = new AddressBook();
             int choice, choice2;
             string BookName = "MyBook";
-            Console.WriteLine("What you like to do?\n1.Work on Default AddressBook\n2.Create new AddressBook");
+            Console.WriteLine("What  you like to do?\n1.Work on Default AddressBook\n2.Create new AddressBook");
             Console.WriteLine("Enter your Choice");
             choice2 = Convert.ToInt32(Console.ReadLine());
             switch (choice2)
@@ -31,7 +34,8 @@ namespace Addressbook
             do
             {
                 Console.WriteLine("Working On {0} AddressBook", BookName);
-                Console.WriteLine("choice an option \n 1.AddContact\n2.Edit Contact\n3.DeleteContact\n4.ViewContact\n5.View All COntact\n6.Add New AddressBook\n7.Swich addressBook\n8.Exit Application");
+                Console.WriteLine("choice an option \n 1.AddContact\n2.Edit Contact\n3.DeleteContact\n4.ViewContact\n" +
+                    "5.View All COntact\n6.Add New AddressBook\n7.Swich addressBook\n8.Exit Application");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -46,35 +50,35 @@ namespace Addressbook
                         string City = Console.ReadLine();
                         Console.WriteLine("Enter State");
                         string State = Console.ReadLine();
-                        Console.WriteLine("Enter Zipcode");
-                        int zipcode = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Enter Email");
+                        Console.WriteLine("Enter Zip");
+                        int Zip = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter Eamil");
                         string Email = Console.ReadLine();
                         Console.WriteLine("Enter PhoneNumber");
-                        long Phonenumber = Convert.ToInt64(Console.ReadLine());
-                        book.CreateContact(FirstName, LastName, Address, City, State, zipcode, Phonenumber, Email, BookName);
+                        long PhoneNumber = Convert.ToInt64(Console.ReadLine());
+                        book.CreateContact(FirstName, LastName, Address, City, State,Zip, PhoneNumber, Email, BookName);
                         break;
                     case 2:
                         Console.WriteLine("Enter First Name Of Contact To edit");
-                        string Nametoedit = Console.ReadLine();
-                        book.EditContact(Nametoedit, BookName);
+                        string nameToedit = Console.ReadLine();
+                        book.EditContact(nameToedit, BookName);
                         break;
                     case 3:
-                        Console.WriteLine("Enter First Name Of Contact To delete");
-                        string Nametodelete = Console.ReadLine();
-                        book.DeleteContact(Nametodelete, BookName);
+                        Console.WriteLine("Enter First  Name Of Contact To delete");
+                        string nameTodelete = Console.ReadLine();
+                        book.DeleteContact(nameTodelete, BookName);
                         break;
                     case 4:
-                        Console.WriteLine("Enter First Name Of Contact To view");
-                        string Nametoview = Console.ReadLine();
-                        book.ViewContact(Nametoview, BookName);
+                        Console.WriteLine("Enter First  Name Of Contact To view");
+                        string nameToview = Console.ReadLine();
+                        book.ViewContact(nameToview, BookName);
                         break;
                     case 5:
 
                         book.ViewContact(BookName);
                         break;
                     case 6:
-                        Console.WriteLine("Enter First Name for New Address book");
+                        Console.WriteLine("Enter First  Name for New Address book");
                         string newaddressbook = Console.ReadLine();
                         book.AddAddressBook(newaddressbook);
                         Console.WriteLine("Would you like to switch To " + newaddressbook);

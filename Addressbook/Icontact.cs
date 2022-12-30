@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Addressbook
 {
-    public interface IContact
+     interface IContact
     {
         public void CreateContact(string firstname, string lastname, string address, string city, string state, int zipcode, long phonenumber, string email,string BookName);
         public void ViewContact(string name, string BookName);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,8 @@ namespace Addressbook
         public string State { get; set; }
         public int ZipCode { get; set; }
         public long PhoneNumber { get; set; }
-      
     }
 }
+
+
+        
