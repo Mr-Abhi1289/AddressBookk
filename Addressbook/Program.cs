@@ -89,6 +89,26 @@ namespace AddressBook
                             BookName = newaddressbook;
                         }
                         break;
+
+                    case 7:
+                        Console.WriteLine("Enter Name Of AddressBook From Below List");
+                        foreach (KeyValuePair<string, AddressBook> item in book.GetaddressBook())
+                        {
+                            Console.WriteLine(item.Key);
+                        }
+                        while (true)
+                        {
+                            BookName = Console.ReadLine();
+                            if (book.GetaddressBook().ContainsKey(BookName))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No such AddressBook found. Try Again.");
+                            }
+                        }
+                        break;
                 }
             } while (choice != 8);
 

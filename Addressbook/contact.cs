@@ -17,6 +17,30 @@ namespace Addressbook
         public string State { get; set; }
         public int ZipCode { get; set; }
         public long PhoneNumber { get; set; }
+
+        public Contact(string firstName, string lastName, string address, string city, string state, string email, int zip, long phoneNumber)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
+            City = city;
+            State = state;
+            Email = email;
+            ZipCode = zip;
+            PhoneNumber = phoneNumber;
+        }
+        public override bool Equals(object? obj)
+        {
+            Contact contact = obj as Contact;
+            if (contact == null)
+            {
+                return false;
+            }
+            else
+            {
+                return FirstName.Equals(contact.FirstName) && LastName.Equals(contact.LastName);
+            }
+        }
     }
 }
 
